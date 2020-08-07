@@ -2,7 +2,21 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    # Your code here
+    all_dict = {}
+    result_dict = {}
+    result = []
+    for array in arrays:
+        for number in array:
+            if number in all_dict:
+                if number not in result_dict:
+                    result_dict[number] = 1
+                result_dict[number] += 1
+            else:
+                all_dict[number] = "value doesn't matter"
+
+    for number in result_dict:
+        if result_dict[number] == len(arrays):
+            result.append(number)
 
     return result
 
