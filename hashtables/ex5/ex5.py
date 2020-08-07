@@ -1,6 +1,6 @@
 # Your code here
 class Entry:
-    def __init__(self,path,next_=None):
+    def __init__(self, path, next_=None):
         self.path = path
         self.next = next_
 
@@ -16,9 +16,9 @@ def finder(files, queries):
         # Extract filename
         filename = path.split("/")[-1]
         # If one or more paths already exist, prepend the new path
-        old_head = path_dict[filename] if path_dict.get(filename) else None
-        path_dict[filename] = Entry(path,old_head)
-    
+        old_head = path_dict.get(filename)
+        path_dict[filename] = Entry(path, old_head)
+
     # Check the dict for each requested filename
     result = []
     for filename in queries:

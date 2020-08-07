@@ -11,7 +11,7 @@ def get_indices_of_item_weights(weights, length, limit):
     weight_table = {}
     for idx, weight in enumerate(weights):
         # If another entry for the same weight exists, prepend the new one
-        prev_head = weight_table[weight] if weight_table.get(weight) else None
+        prev_head = weight_table.get(weight)
         weight_table[weight] = Entry(idx, prev_head)
 
     # Try to find a matching pair of weights
