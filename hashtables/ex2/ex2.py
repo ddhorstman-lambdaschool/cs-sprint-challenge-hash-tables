@@ -9,7 +9,7 @@ def reconstruct_trip(tickets, length):
     """
     YOUR CODE HERE
     """
-    # Create a table storing source->dest key/value pairs
+    # Create a table storing source->dest pairs
     trip_table = {}
     for ticket in tickets:
         trip_table[ticket.source] = ticket.destination

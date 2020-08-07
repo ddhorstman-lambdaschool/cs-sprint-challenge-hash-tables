@@ -2,30 +2,31 @@ def intersection(arrays):
     """
     YOUR CODE HERE
     """
-    all_dict = {}
-    result_dict = {}
+    all_numbers = {}
+    shared_numbers = {}
     result = []
 
     # Read thru the arrays and find shared elements
     for idx, array in enumerate(arrays):
         for number in array:
-            # If we've seen this number already,
-            # add it to the list of shared elements
-            if number in all_dict:
-                if number not in result_dict:
-                    result_dict[number] = 1
-                result_dict[number] += 1
 
             # Add the number to the dict only if this is the first array
             # This saves a lot of memory and runs 10% faster
-            # versus adding elements from every array to the dict
-            elif idx==0:
-                all_dict[number] = "Value doesn't matter. Should have used a set."
-    
+            # than adding elements from every array to the dict
+            if idx == 0:
+                all_numbers[number] = "Value doesn't matter. Should have used a set."
+
+            # If we've seen this number already,
+            # update its entry in the shared numbers dict
+            elif number in all_numbers:
+                if number not in shared_numbers:
+                    shared_numbers[number] = 1
+                shared_numbers[number] += 1
+
     # Look through shared elements
-    for number in result_dict:
+    for number in shared_numbers:
         # If it appeared in every list, add it to the result
-        if result_dict[number] == len(arrays):
+        if shared_numbers[number] == len(arrays):
             result.append(number)
 
     return result

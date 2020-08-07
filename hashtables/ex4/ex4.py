@@ -12,6 +12,7 @@ def has_negatives(a):
         # Otherwise, store it and see if we find its partner
         else:
             num_dict[number] = "Value doesn't matter. Should have used a set."
+
     return result
 
 
