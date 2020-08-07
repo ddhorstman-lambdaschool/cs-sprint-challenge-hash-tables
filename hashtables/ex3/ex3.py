@@ -7,14 +7,18 @@ def intersection(arrays):
     result = []
     for array in arrays:
         for number in array:
+            # If we've seen this number already,
+            # add it to the list of shared elements
             if number in all_dict:
                 if number not in result_dict:
                     result_dict[number] = 1
                 result_dict[number] += 1
+            # Otherwise, add it to the list of numbers
             else:
-                all_dict[number] = "value doesn't matter"
-
+                all_dict[number] = "Value doesn't matter. Should have used a set."
+    # Look through shared elements
     for number in result_dict:
+        # If it appeared in every list, add it to the result
         if result_dict[number] == len(arrays):
             result.append(number)
 
